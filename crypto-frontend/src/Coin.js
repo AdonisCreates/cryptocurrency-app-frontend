@@ -10,11 +10,10 @@ const Coin = ({ name, image, symbol, price, volume, priceChange}) => {
                     <h1>{name}</h1>
                     <p className="coin-symbol">{symbol}</p>
                 </div>
-                <div className="coin-data"></div>
-                <div className="coin-price">${price}</div>
+                <div className="coin-data">
+                    <p className="coin-price">${price}</p>
                 {/* localestring will display the actual commas between the #s */}
-                <p className="coin-volume">${volume.toLocaleString()}
-                </p>
+                    <p className="coin-volume">${volume.toLocaleString()}</p>
                 {/* using a ternary operator, so if there's a change in the coin's price < 0, it will turn red */}
                 {priceChange < 0 ? (
                     <p className="coin-percent red">{priceChange.toFixed(2)}%</p>
@@ -22,6 +21,7 @@ const Coin = ({ name, image, symbol, price, volume, priceChange}) => {
             }
             </div>
         </div>
+    </div>
     )
 }
 
