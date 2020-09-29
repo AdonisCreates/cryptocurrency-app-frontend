@@ -2,3 +2,13 @@
     display: flex;
     justify-content: center;
 }
+
+.coin-row {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+* {
+    background-color: whitesmoke;
+}
