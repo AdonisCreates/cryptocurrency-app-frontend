@@ -1,7 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
-import './App.css';
 import Coin from './Coin';
+import NavBar from "./components/NavBar/NavBar";
+import SignUpForm from "./components/SignUpForm/SignUpForm";
+import LogInForm from "./components/LogInForm/LogInForm";
+import LogOut from "./components/LogOut/LogOut";
+
+
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -9,7 +14,7 @@ function App() {
 
   // using promises here, something has to happen then this will happen
   useEffect(() => {
-    axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
+    axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=22&page=1&sparkline=false')
     .then(res => {
       setCoins(res.data)
     })
@@ -28,12 +33,13 @@ function App() {
 
   return (
     <div className="coin-app">
+      <NavBar LogInForm={LogInForm} />
       <div className="coin-search">
         <h1 className="coin-text">Search for a coin</h1>
         <form>
           <input type="text" placeholder="Search" className="coin-input" onChange={handleChange}/>
         </form>
-      </div>
+      </div> 
       {filteredCoins.map(coin => {
         return <Coin
           key={coin.id}
