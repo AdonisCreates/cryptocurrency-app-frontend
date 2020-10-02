@@ -6,8 +6,6 @@ import SignUpForm from "./components/SignUpForm/SignUpForm";
 import LogInForm from "./components/LogInForm/LogInForm";
 import LogOut from "./components/LogOut/LogOut";
 
-
-
 function App() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState('')
@@ -56,5 +54,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
