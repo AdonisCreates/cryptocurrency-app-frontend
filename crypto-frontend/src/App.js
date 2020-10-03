@@ -1,10 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect } from 'react';
 import axios from 'axios'
 import Coin from './Coin';
 import NavBar from "./components/NavBar/NavBar";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import LogInForm from "./components/LogInForm/LogInForm";
 import LogOut from "./components/LogOut/LogOut";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams, useHistory
+} from "react-router-dom";
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -31,6 +38,49 @@ function App() {
 
   return (
     <div className="coin-app">
+       <Switch>
+          <Route
+            path="/signup"
+            render={(props) => {
+              return (
+                <SignUpForm
+                  isLoggedIn={isLoggedIn}
+                  handleInput={handleInput}
+                  handleSignUp={handleSignUp}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/logout"
+            render={(props) => {
+              return (
+                <LogOut isLoggedIn={isLoggedIn} handleLogOut={handleLogOut} />
+              );
+            }}
+          />
+          <Route
+            path="/login"
+            render={(props) => {
+              return (
+                <LogInForm
+                  isLoggedIn={isLoggedIn}
+                  handleInput={handleInput}
+                  handleLogIn={handleLogIn}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/new"
+            render={(props) => {
+              return (
+                <New
+                />
+              );
+            }}
+          />
+        </Switch>
       <NavBar LogInForm={LogInForm} />
       <div className="coin-search">
         <h1 className="coin-text">Search for a coin</h1>
