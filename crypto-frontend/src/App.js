@@ -10,7 +10,7 @@ import {
   Switch,
   Route,
   Link,
-  useParams, useHistory
+  useParams
 } from "react-router-dom";
 
 function App() {
